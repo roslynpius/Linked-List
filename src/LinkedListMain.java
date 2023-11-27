@@ -49,15 +49,14 @@ class LinkedList<T> {
      *
      * @param newData The data to be entered into the linked list
      * @param existingData1 One of the data in between which we need to add new data
-     * @param existingData2 One of the data in between which we need to add new data
      * @desc Method to add a new node to the LinkedList
      */
-    public void insertBetween(T newData, T existingData1, T existingData2) {
+    public void insertAfter(T newData, T existingData1) {
         Node<T> newNode = new Node<>(newData);
         Node<T> temp = head;
 
         while (temp != null) {
-            if (temp.data.equals(existingData1) && temp.next != null && temp.next.data.equals(existingData2)) {
+            if (temp.data.equals(existingData1)) {
                 newNode.next = temp.next;
                 temp.next = newNode;
                 break;
@@ -106,20 +105,14 @@ public class LinkedListMain {
         // Create a LinkedList with elements 56, 30, and 70.
         LinkedList<Integer> linkedList = new LinkedList<>();
         linkedList.add(56); //56 is first added
+        linkedList.add(30); // 30 is added to linked list
         linkedList.add(70); //70 is added to linked list
 
         // Display the elements of the LinkedList.
         linkedList.display();
 
-        System.out.println("Adding 30 in between 56 and 70:");
-
-        // Insert 30 between 56 and 70.
-        linkedList.insertBetween(30, 56, 70);
-
-        // Display the elements of the LinkedList.
-        linkedList.display();
-
         // Search for a node with value 30.
+        System.out.println("Searching for value 30:");
         Node<Integer> result = linkedList.search(30);
 
         if (result != null) {
@@ -128,6 +121,13 @@ public class LinkedListMain {
         else {
             System.out.println("Node not found.");
         }
+
+        // Insert 40 after 30.
+        System.out.println("Adding 40 after 30:");
+        linkedList.insertAfter(40, 30);
+
+        // Display the elements of the LinkedList.
+        linkedList.display();
 
     }
 }
