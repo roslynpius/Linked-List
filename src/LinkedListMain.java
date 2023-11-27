@@ -29,7 +29,11 @@ class LinkedList<T> {
         this.head = null;
     }
 
-    // Method to add a new node to the LinkedList.
+    /**
+     *
+     * @param data The data of type T to be entered into the linked list
+     * @desc Method to add a new node to the LinkedList
+     */
     public void add(T data) {
         Node<T> newNode = new Node<>(data);
         if (head == null) {
@@ -43,7 +47,10 @@ class LinkedList<T> {
         }
     }
 
-    // Method to display the elements of the LinkedList.
+    /**
+     *
+     * @desc Method to display the elements of the LinkedList.
+     */
     public void display() {
         Node<T> current = head;
         System.out.print("LinkedList: ");
@@ -62,9 +69,9 @@ public class LinkedListMain {
     public static void main(String[] args) {
         // Create a LinkedList with elements 56, 30, and 70.
         LinkedList<Integer> linkedList = new LinkedList<>();
-        linkedList.add(56);
-        linkedList.add(30);
-        linkedList.add(70);
+        linkedList.add(70); //70 is first added
+        linkedList.add(30); //30 is added to linked list
+        linkedList.add(56); //56 is added to linked list
 
         // Display the elements of the LinkedList.
         linkedList.display();
