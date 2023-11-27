@@ -1,5 +1,3 @@
-import java.util.*;
-
 /**
  *
  * @param <T> the type of data stored in the Node.
@@ -72,11 +70,15 @@ class LinkedList<T> {
      *
      * @desc Method to delete first element
      */
-    public void pop() {
-        System.out.println(head.data);
-        if (head != null) {
-            head = head.next;
+    public void popLast() {
+        Node<T> current = head;
+        Node<T> prev = null;
+        while(current.next!=null)
+        {
+            prev=current;
+            current=current.next;
         }
+        prev.next=null;
     }
 
     /**
@@ -107,14 +109,17 @@ public class LinkedListMain {
         // Display the elements of the LinkedList.
         linkedList.display();
 
+        System.out.println("Adding 30 in between 56 and 70:");
+
         // Insert 30 between 56 and 70.
         linkedList.insertBetween(30, 56, 70);
 
         // Display the elements of the LinkedList.
         linkedList.display();
 
-        //Delete first element
-        linkedList.pop();
+        //Delete last element
+        System.out.println("Delete last element:");
+        linkedList.popLast();
 
         // Display the elements of the LinkedList after deleting first element
         linkedList.display();
