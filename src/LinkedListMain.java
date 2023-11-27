@@ -84,6 +84,33 @@ class LinkedList<T> {
 
     /**
      *
+     * @param value : Element to be deleted
+     * @desc Method to delete particular element
+     */
+    public void pop(T value) {
+        Node<T> current = head;
+        Node<T> prev = null;
+
+        if(value.equals(head.data)) {
+            head = head.next;
+            return;
+        }
+
+        while(current!=null)
+        {
+            if(value.equals(current.data))
+            {
+                assert prev != null;
+                prev.next=current.next;
+                break;
+            }
+            prev=current;
+            current=current.next;
+        }
+    }
+
+    /**
+     *
      * @desc Method to display the elements of the LinkedList.
      */
     public void display() {
@@ -111,23 +138,28 @@ public class LinkedListMain {
         // Display the elements of the LinkedList.
         linkedList.display();
 
-        // Search for a node with value 30.
-        System.out.println("Searching for value 30:");
-        Node<Integer> result = linkedList.search(30);
-
-        if (result != null) {
-            System.out.println("Node with value "+result.data+" found.");
-        }
-        else {
-            System.out.println("Node not found.");
-        }
-
         // Insert 40 after 30.
         System.out.println("Adding 40 after 30:");
         linkedList.insertAfter(40, 30);
 
         // Display the elements of the LinkedList.
         linkedList.display();
+
+        // Search for a node with value 30.
+        System.out.println("Searching for value 40:");
+        Node<Integer> result = linkedList.search(40);
+
+        if (result != null) {
+            System.out.println("Node with value "+result.data+" found.");
+
+            //delete 40
+            System.out.println("After deleting 40:");
+            linkedList.pop(40);
+            linkedList.display();
+        }
+        else {
+            System.out.println("Node not found.");
+        }
 
     }
 }
