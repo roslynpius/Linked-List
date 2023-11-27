@@ -32,7 +32,7 @@ class LinkedList<T> {
     /**
      *
      * @param data The data of type T to be entered into the linked list
-     * @desc Method to add a new node to the LinkedList
+     * @desc Method to add a new node to the front of the LinkedList
      */
     public void add(T data) {
         Node<T> newNode = new Node<>(data);
