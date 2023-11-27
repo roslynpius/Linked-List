@@ -36,15 +36,8 @@ class LinkedList<T> {
      */
     public void add(T data) {
         Node<T> newNode = new Node<>(data);
-        if (head == null) {
-            head = newNode;
-        } else {
-            Node<T> temp = head;
-            while (temp.next != null) {
-                temp = temp.next;
-            }
-            temp.next = newNode;
-        }
+        newNode.next = head;
+        head = newNode;
     }
 
     /**
@@ -69,9 +62,9 @@ public class LinkedListMain {
     public static void main(String[] args) {
         // Create a LinkedList with elements 56, 30, and 70.
         LinkedList<Integer> linkedList = new LinkedList<>();
-        linkedList.add(56); //56 is first added
+        linkedList.add(70); //70 is first added
         linkedList.add(30); //30 is added to linked list
-        linkedList.add(70); //70 is added to linked list
+        linkedList.add(56); //56 is added to linked list
 
         // Display the elements of the LinkedList.
         linkedList.display();
