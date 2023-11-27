@@ -70,6 +70,17 @@ class LinkedList<T> {
 
     /**
      *
+     * @desc Method to delete first element
+     */
+    public void pop() {
+        System.out.println(head.data);
+        if (head != null) {
+            head = head.next;
+        }
+    }
+
+    /**
+     *
      * @desc Method to display the elements of the LinkedList.
      */
     public void display() {
@@ -100,6 +111,12 @@ public class LinkedListMain {
         linkedList.insertBetween(30, 56, 70);
 
         // Display the elements of the LinkedList.
+        linkedList.display();
+
+        //Delete first element
+        linkedList.pop();
+
+        // Display the elements of the LinkedList after deleting first element
         linkedList.display();
 
     }
