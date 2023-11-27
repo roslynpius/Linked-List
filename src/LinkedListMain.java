@@ -68,17 +68,19 @@ class LinkedList<T> {
 
     /**
      *
-     * @desc Method to delete first element
+     * @param value the value to be searched
+     * @desc Method to search for an element in the LinkedList.
+     * @return Returns the node if element is found else null
      */
-    public void popLast() {
+    public Node<T> search(T value) {
         Node<T> current = head;
-        Node<T> prev = null;
-        while(current.next!=null)
-        {
-            prev=current;
-            current=current.next;
+        while (current != null) {
+            if (current.data.equals(value)) {
+                return current;
+            }
+            current = current.next;
         }
-        prev.next=null;
+        return null;
     }
 
     /**
@@ -117,12 +119,15 @@ public class LinkedListMain {
         // Display the elements of the LinkedList.
         linkedList.display();
 
-        //Delete last element
-        System.out.println("Delete last element:");
-        linkedList.popLast();
+        // Search for a node with value 30.
+        Node<Integer> result = linkedList.search(30);
 
-        // Display the elements of the LinkedList after deleting first element
-        linkedList.display();
+        if (result != null) {
+            System.out.println("Node with value "+result.data+" found.");
+        }
+        else {
+            System.out.println("Node not found.");
+        }
 
     }
 }
