@@ -31,7 +31,7 @@ class LinkedList<T> {
 
     /**
      *
-     * @param data The data of type T to be entered into the linked list
+     * @param data The data to be entered into the linked list
      * @desc Method to add a new node to the LinkedList
      */
     public void add(T data) {
